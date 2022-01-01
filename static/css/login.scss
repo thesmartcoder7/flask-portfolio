@@ -1,0 +1,437 @@
+@import "mixins";
+
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+@keyframes vanish {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/Contact-Background.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    @include mobile {
+        background-image: url("../images/Mobile-bg.webp");
+    }
+    @include tablet {
+        background-image: url("../images/Tablet-single-bg.webp");
+    }
+    @include smalllaptop {
+        background-image: url("../images/Tablet-single-bg.webp");
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+
+p {
+    font-family: "Verdana";
+    line-height: 1.7rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.03rem;
+    &.caveat {
+        font-family: "Caveat";
+        font-size: 2rem;
+    }
+    &.copyright-text a {
+        color: $color_azure_radiance_approx;
+    }
+}
+
+.loader {
+    position: fixed;
+    z-index: 5000;
+    background-color: $white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 1s linear infinite;
+    @include tablet {
+        width: 100%;
+        height: 100%;
+    }
+    @include mobile {
+        width: 100%;
+        height: 100%;
+    }
+    .pre {
+        width: 80px;
+        height: 80px;
+        @include tablet {
+            width: 60px;
+            height: 60px;
+        }
+        @include mobile {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .blue {
+        color: $color_azure_radiance_approx;
+        font-family: "Verdana";
+        font-size: 2.5rem;
+        font-weight: 500;
+        @include tablet {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        @include mobile {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+    .grey {
+        @extend .blue;
+        color: $color_dorado_approx;
+    }
+}
+
+.disappear {
+    animation: vanish 1s forwards;
+}
+
+// . . . wordpress form styling . . .
+
+#login {
+    width: 25%;
+    @include mobile {
+        width: 80%;
+    }
+    @include tablet {
+        width: 50%;
+    }
+    @include smalllaptop {
+        width: 40%;
+    }
+    h1 {
+        display: none;
+    }
+
+    .message {
+        display: none;
+    }
+
+    #loginform {
+        border: none;
+        font-family: "Verdana";
+        text-align: left;
+        margin: auto;
+        background-color: $white;
+        color: $color_dorado_approx;
+        background-color: transparent;
+        position: relative;
+        p {
+            label {
+                //text-align: center;
+                background-color: $white;
+                z-index: 1;
+                position: absolute;
+                margin-top: -2.5%;
+                margin-left: 5%;
+                padding: 0 3%;
+                //color: $color_azure_radiance_approx;
+                color: #0980d4;
+                font-size: 0.9rem;
+            }
+            input {
+                -webkit-appearance: none;
+                appearance: none;
+                background-color: transparent;
+                padding-top: 10%;
+                padding-bottom: 2%;
+                padding-left: 5%;
+                z-index: 0;
+                color: $color_dorado_approx;
+                border-radius: 5px;
+                margin-bottom: 10%;
+                &:focus {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    border-color: $color_azure_radiance_approx;
+                    background-color: $white;
+                    border-radius: 5px;
+                }
+            }
+        }
+        > .submit {
+            #wp-submit {
+                font-family: "Verdana";
+                width: 30%;
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: $white;
+                border: solid 1.5px;
+                border-color: $color_azure_radiance_approx;
+                background-color: $color_azure_radiance_approx;
+                border-radius: 4px;
+                padding: 2% 4%;
+                margin-top: 7%;
+                letter-spacing: 0.1rem;
+                @include mobile {
+                    width: 40%;
+                    margin-top: 15%;
+                    padding-top: 2%;
+                    padding-bottom: 2%;
+                    padding-right: 6%;
+                    padding-left: 6%;
+                }
+                @include tablet {
+                    margin-top: 10%;
+                    padding-top: 1.5%;
+                    padding-bottom: 1.5%;
+                    padding-right: 5%;
+                    padding-left: 5%;
+                }
+                &:hover {
+                    color: $color_azure_radiance_approx;
+                    border-color: $color_azure_radiance_approx;
+                    background-color: $white;
+                }
+            }
+        }
+        .user-pass-wrap {
+            margin-top: 5%;
+            label {
+                //text-align: center;
+                background-color: $white;
+                z-index: 1;
+                position: absolute;
+                margin-top: -2.5%;
+                margin-left: 5%;
+                padding: 0 3%;
+                //color: $color_azure_radiance_approx;
+                color: #0980d4;
+                font-size: 0.9rem;
+            }
+            .wp-pwd {
+                input {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    background-color: transparent;
+                    padding-top: 10%;
+                    padding-bottom: 2%;
+                    padding-left: 5%;
+                    z-index: 0;
+                    color: $color_dorado_approx;
+
+                    border-radius: 5px;
+                    margin-bottom: 10%;
+                    &:focus {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        border-color: $color_azure_radiance_approx;
+                        background-color: $white;
+                        border-radius: 5px;
+                    }
+                }
+                button {
+                    color: $color_azure_radiance_approx;
+                    margin-top: 4%;
+                }
+            }
+        }
+        .forgetmenot {
+            input {
+                border-radius: 3px;
+            }
+
+            label {
+                background-color: transparent;
+                margin-left: -2.5%;
+                padding-top: 2%;
+            }
+        }
+        .submit {
+            #wp-submit {
+                margin: 0;
+            }
+        }
+    }
+    #nav {
+        margin-top: -5%;
+    }
+}
+
+// . . . my form styling . . .
+.login {
+    display: flex;
+    align-items: center;
+    color: $boulder;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    @include mobile {
+        justify-content: center;
+    }
+    @include tablet {
+        justify-content: center;
+    }
+    @include smalllaptop {
+        justify-content: center;
+    }
+    .loginform {
+        width: 50%;
+        margin-top: -10%;
+        @include mobile {
+            width: 100%;
+        }
+        @include tablet {
+            width: 100%;
+        }
+        @include smalllaptop {
+            width: 80%;
+        }
+    }
+    .login-form {
+        font-family: "Verdana";
+        text-align: left;
+        width: 50%;
+        margin: auto;
+        background-color: $white;
+        color: $color_dorado_approx;
+        background-color: transparent;
+        @include mobile {
+            width: 65%;
+        }
+        @include tablet {
+            width: 60%;
+            padding: 5% 5%;
+            margin-bottom: 5%;
+        }
+        @include smalllaptop {
+            width: 60%;
+            padding: 5% 5%;
+            margin-bottom: 5%;
+        }
+        h1 {
+            text-align: left;
+            font-size: 1.5rem;
+            letter-spacing: 0.1rem;
+            width: 100%;
+            margin-bottom: 5%;
+            color: $color_azure_radiance_approx;
+            @include smalllaptop {
+                font-size: 1.9rem;
+            }
+        }
+        a {
+            display: inline-block;
+            width: 68%;
+            font-size: 0.8rem;
+            text-align: right;
+            text-decoration: none;
+            color: $color_dove_gray_approx;
+            @include mobile {
+                width: 57%;
+                text-align: right;
+            }
+        }
+        input[type="text"],
+        input[type="password"],
+        textarea {
+            font-family: "Verdana";
+            width: 100%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            margin-right: 1%;
+            margin-left: 1%;
+            padding: 2% 4%;
+            border: solid;
+            border-color: $boulder;
+            border-width: 0 0 1px 0;
+            @include mobile {
+                padding: 5% 4%;
+            }
+            @include smalllaptop {
+                font-size: 0.9rem;
+            }
+            &:focus {
+                border-color: $color_azure_radiance_approx;
+                border-width: 0 0 1px 0;
+                outline: none;
+            }
+        }
+
+        input[type="submit"] {
+            font-family: "Verdana";
+            width: 30%;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: $white;
+            border: solid 1.5px;
+            border-color: $color_azure_radiance_approx;
+            background-color: $color_azure_radiance_approx;
+            border-radius: 4px;
+            padding: 2.5% 4%;
+            margin-top: 7%;
+            letter-spacing: 0.1rem;
+            @include mobile {
+                width: 40%;
+                margin-top: 15%;
+                padding-top: 4%;
+                padding-bottom: 4%;
+                padding-right: 6%;
+                padding-left: 6%;
+            }
+            @include tablet {
+                margin-top: 10%;
+                padding-top: 3%;
+                padding-bottom: 3%;
+                padding-right: 5%;
+                padding-left: 5%;
+            }
+            &:hover {
+                color: $color_azure_radiance_approx;
+                border-color: $color_azure_radiance_approx;
+                background-color: $white;
+            }
+        }
+    }
+}

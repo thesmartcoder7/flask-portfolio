@@ -1,0 +1,47 @@
+//colors
+$color_azure_radiance_approx: #009ff6;
+$color_dorado_approx: #525252;
+$white: #fff;
+$boulder: #505050;
+$black: #000;
+$color_wild_sand_approx: #f5f5f5;
+$color_alto_approx: #d2d1d1;
+$color_mine_shaft_approx: #3a3a3a;
+$color_dove_gray_approx: #666;
+$color_nobel_approx: #b4b0b0;
+
+@mixin mobile {
+    @media (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 501px) and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin smalllaptop {
+    @media (min-width: 769px) and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (min-width: 1025px) and (max-width: 1440px) {
+        @content;
+    }
+}
+
+/*@mixin widescreen CSS {
+    @media (min-width: 1441px) and (max-width: 1920px) {
+        @content;
+    }
+}*/
+
+@mixin ultrawide {
+    @media (min-width: 1921px) {
+        @content;
+    }
+}

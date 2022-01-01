@@ -1,0 +1,242 @@
+@font-face {
+    font-family: "Caveat";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/caveat/v10/Wnz6HAc5bAfYB2Q7ZjYY.woff2)
+        format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
+}
+@import "mixins";
+
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+@keyframes vanish {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/Contact-Background.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    @include mobile {
+        background-image: url("../images/Mobile-bg.webp");
+    }
+    @include tablet {
+        background-image: url("../images/Tablet-single-bg.webp");
+    }
+    @include smalllaptop {
+        background-image: url("../images/Tablet-single-bg.webp");
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    padding: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    @include mobile {
+        padding: 20% 10% 0 10%;
+        justify-content: center;
+    }
+    h1 {
+        color: $color_azure_radiance_approx;
+        background-color: transparent;
+        font-family: "Verdana";
+        font-size: 7rem;
+        text-align: center;
+        @include mobile {
+            font-size: 5rem;
+            padding-bottom: 5%;
+        }
+    }
+    h2 {
+        color: $color_dove_gray_approx;
+        font-family: "caveat";
+        letter-spacing: 0.1rem;
+        font-size: 2.5rem;
+        text-align: center;
+        background-color: transparent;
+        margin-bottom: 5%;
+        margin-top: 2%;
+        @include mobile {
+            font-size: 2rem;
+            margin-bottom: 0;
+            margin-top: 0;
+            padding-bottom: 10%;
+        }
+    }
+    img {
+        margin-top: 10%;
+        align-self: center;
+        width: 400px;
+        height: 400px;
+        @include mobile {
+            width: 250px;
+            height: 150px;
+        }
+        @include tablet {
+            width: 300px;
+            height: 170px;
+        }
+        @include smalllaptop {
+            width: 400px;
+            height: 200px;
+        }
+    }
+    a {
+        text-align: center;
+    }
+
+    button {
+        align-self: center;
+        color: $white;
+        font-family: "Verdana";
+        font-weight: 600;
+        font-size: 0.85rem;
+        letter-spacing: 0.1rem;
+        text-transform: capitalize;
+        padding-top: 1.5%;
+        padding-bottom: 1.5%;
+        padding-right: 2%;
+        padding-left: 2%;
+        border: solid 1.5px;
+        border-radius: 4px;
+        border-color: $color_azure_radiance_approx;
+        background-color: $color_azure_radiance_approx;
+        box-shadow: none;
+        @include mobile {
+            padding-top: 5%;
+            padding-bottom: 5%;
+            padding-right: 5%;
+            padding-left: 5%;
+            margin-top: 5%;
+            margin-bottom: 10%;
+        }
+        @include tablet {
+            padding-top: 4%;
+            padding-bottom: 4%;
+            padding-right: 3.5%;
+            padding-left: 3.5%;
+        }
+        @include smalllaptop {
+            padding-top: 4%;
+            padding-bottom: 4%;
+            padding-right: 3.5%;
+            padding-left: 3.5%;
+        }
+        &:hover {
+            color: $color_azure_radiance_approx;
+            border-color: $color_azure_radiance_approx;
+            background-color: $white;
+        }
+    }
+}
+
+p {
+    font-family: "Verdana";
+    line-height: 1.7rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.03rem;
+    &.caveat {
+        font-family: "Caveat";
+        font-size: 2rem;
+    }
+    &.copyright-text a {
+        color: $color_azure_radiance_approx;
+    }
+}
+
+.loader {
+    position: fixed;
+    z-index: 5000;
+    background-color: $white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 1s linear infinite;
+    @include tablet {
+        width: 100%;
+        height: 100%;
+    }
+    @include mobile {
+        width: 100%;
+        height: 100%;
+    }
+    .pre {
+        width: 80px;
+        height: 80px;
+        @include tablet {
+            width: 60px;
+            height: 60px;
+        }
+        @include mobile {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .blue {
+        color: $color_azure_radiance_approx;
+        font-family: "Verdana";
+        font-size: 2.5rem;
+        font-weight: 500;
+        @include tablet {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        @include mobile {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+    .grey {
+        @extend .blue;
+        color: $color_dorado_approx;
+    }
+}
+
+.disappear {
+    animation: vanish 1s forwards;
+}

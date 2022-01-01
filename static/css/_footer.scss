@@ -1,0 +1,192 @@
+// . . . . . . . Footer styling . . . . . . .
+
+@import "mixins";
+
+footer {
+    background-color: $color_mine_shaft_approx;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    @include mobile {
+        padding-bottom: 5%;
+    }
+}
+.footer-form {
+    font-family: "Verdana";
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
+    background-color: $white;
+    border-radius: 7px;
+    box-shadow: 0 0 15px $color_dove_gray_approx;
+    padding: 8% 15%;
+    margin-top: -30%;
+    color: $color_dorado_approx;
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        padding: 8% 10%;
+        margin-bottom: 5%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    @include tablet {
+        width: 70vw;
+        padding: 8% 10%;
+        margin-bottom: 5%;
+        padding-bottom: 3%;
+    }
+    @include smalllaptop {
+        width: 60vw;
+        padding: 8% 10%;
+        margin-bottom: 5%;
+        padding-bottom: 3%;
+    }
+    @include laptop {
+        width: 50vw;
+        padding: 8% 10%;
+        padding-bottom: 3%;
+    }
+    .success-sub {
+        color: $color_azure_radiance_approx;
+        font-size: 1.2rem;
+    }
+    .failed-sub {
+        color: $color_azure_radiance_approx;
+        font-size: 1.2rem;
+    }
+    p {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 7%;
+    }
+    label {
+        width: 100%;
+    }
+    input[type="text"],
+    input[type="email"] {
+        font-family: "Verdana";
+        width: 40%;
+        margin-bottom: 10%;
+        margin-right: 1%;
+        margin-left: 1%;
+        padding: 2% 4%;
+        border-radius: 0;
+        -webkit-appearance: none;
+        border: solid;
+        border-color: $color_dorado_approx;
+        border-width: 1px;
+        border-width: 0 0 1px 0;
+        @include mobile {
+            width: 80%;
+            padding: 5% 0;
+        }
+
+        &:focus {
+            border-color: $color_azure_radiance_approx;
+            border-width: 0 0 1px 0;
+            outline: none;
+        }
+    }
+
+    input[type="submit"] {
+        font-family: "Verdana";
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: $white;
+        border: solid 1.5px;
+        border-color: $color_azure_radiance_approx;
+        background-color: $color_azure_radiance_approx;
+        border-radius: 4px;
+        padding: 2.5% 4%;
+        margin-bottom: 4%;
+        letter-spacing: 0.1rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        @include mobile {
+            width: 50%;
+            display: inline-block;
+            margin-top: 7%;
+            margin-bottom: 7%;
+            padding-top: 4%;
+            padding-bottom: 4%;
+            padding-right: 5%;
+            padding-left: 5%;
+        }
+        @include tablet {
+            margin-top: 3%;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            padding-right: 5%;
+            padding-left: 5%;
+        }
+        @include smalllaptop {
+            margin-top: 3%;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            padding-right: 5%;
+            padding-left: 5%;
+        }
+        &:hover {
+            color: $color_azure_radiance_approx;
+            border-color: $color_azure_radiance_approx;
+            background-color: $white;
+        }
+    }
+}
+.copyright-text {
+    text-align: center;
+    padding-bottom: 3rem;
+    color: $white;
+    @include mobile {
+        padding-bottom: 0.5rem;
+    }
+    span {
+        @include mobile {
+            display: none;
+        }
+    }
+}
+ul.social {
+    display: flex;
+    padding-top: 10%;
+    padding-bottom: 2%;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0 auto;
+    @include mobile {
+        padding-bottom: 1%;
+        padding-top: 5%;
+    }
+
+    li {
+        color: $color_nobel_approx;
+        text-align: center;
+        margin: 0 1.1rem;
+        @include mobile {
+            margin: 0.8rem;
+        }
+
+        a {
+            svg {
+                fill: $color_nobel_approx;
+                cursor: pointer;
+                width: 1.3rem;
+                height: 1.3rem;
+                @include mobile {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
+                &:hover {
+                    fill: $white;
+                }
+            }
+        }
+    }
+}

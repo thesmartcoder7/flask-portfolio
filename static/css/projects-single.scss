@@ -1,0 +1,511 @@
+@import "mixins";
+
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+
+
+@keyframes vanish {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/Light-mode_bg.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    @include mobile {
+        background-image: url("../images/Light-mode_bg-mobile.webp");
+    }
+    @include tablet {
+        background-image: url("../images/Light-mode_bg-tablet.webp");
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+p {
+    font-family: "Verdana";
+    line-height: 1.7rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.03rem;
+    @include mobile {
+        font-size: 0.9rem;
+    }
+    &.caveat {
+        font-family: "Caveat";
+        font-size: 2rem;
+    }
+    &.copyright-text a {
+        color: $color_azure_radiance_approx;
+    }
+}
+
+// . . . . . . . Preloader styling . . . . . . .
+.loader {
+    position: fixed;
+    z-index: 5000;
+    background-color: $white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 1s linear infinite;
+    @include tablet {
+        width: 100%;
+        height: 100%;
+    }
+    @include mobile {
+        width: 100%;
+        height: 100%;
+    }
+    .pre {
+        width: 80px;
+        height: 80px;
+        @include tablet {
+            width: 60px;
+            height: 60px;
+        }
+        @include mobile {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .blue {
+        color: $color_azure_radiance_approx;
+        font-family: "Verdana";
+        font-size: 2.5rem;
+        font-weight: 500;
+        @include tablet {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        @include mobile {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+    .grey {
+        @extend .blue;
+        color: $color_dorado_approx;
+    }
+}
+
+.disappear {
+    animation: vanish 1s forwards;
+}
+
+// . . . . . . . Overview styling . . . . . .
+.overview-section {
+    padding: 10% 15%;
+    display: flex;
+    @include mobile {
+        padding: 25% 10% 10% 10%;
+        display: flex;
+        flex-direction: column;
+    }
+    @include tablet {
+        padding: 20% 15% 10% 15%;
+        display: flex;
+        flex-direction: column;
+    }
+    @include smalllaptop {
+        padding: 20% 15% 10% 15%;
+        display: flex;
+        flex-direction: column;
+    }
+    @include laptop {
+        padding: 15% 10% 10% 10%;
+    }
+    .full-image {
+        width: 50%;
+        @include mobile {
+            width: 100%;
+        }
+        @include tablet {
+            width: 100%;
+        }
+        @include smalllaptop {
+            width: 100%;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .overview {
+        padding: 0 5%;
+        text-align: center;
+        width: 50%;
+        @include mobile {
+            width: 100%;
+            padding: 10% 0 0 0;
+        }
+        @include tablet {
+            width: 100%;
+            padding: 10% 0 0 0;
+        }
+        @include smalllaptop {
+            width: 100%;
+            padding: 10% 0 0 0;
+        }
+        h1 {
+            font-family: "Verdana";
+            color: $color_dorado_approx;
+            font-size: 2rem;
+            padding-bottom: 5%;
+            font-weight: 500;
+            @include mobile {
+                font-size: 1.7rem;
+            }
+        }
+        p {
+            text-align: left;
+            color: $color_dove_gray_approx;
+            font-size: 0.95rem;
+            line-height: 2rem;
+            margin-bottom: 7%;
+        }
+        .button {
+            align-self: center;
+            color: $white;
+            font-family: "Verdana";
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.1rem;
+            text-transform: capitalize;
+            padding-top: 1.5%;
+            padding-bottom: 1.5%;
+            padding-right: 2.5%;
+            padding-left: 2.5%;
+            border: solid 1.5px;
+            border-radius: 5px;
+            border-color: $white;
+            background-color: $color_azure_radiance_approx;
+            box-shadow: none;
+            &:hover {
+                color: $color_azure_radiance_approx;
+                border-color: $color_azure_radiance_approx;
+                background-color: $white;
+            }
+        }
+    }
+}
+.approach-section {
+    padding: 5% 15%;
+    display: flex;
+    @include mobile {
+        padding: 10% 10%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    @include tablet {
+        padding: 10% 15%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    @include smalllaptop {
+        padding: 10% 15%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    @include laptop {
+        padding: 10% 10%;
+    }
+    .approach {
+        padding: 0 5%;
+        text-align: center;
+        width: 50%;
+        @include mobile {
+            width: 100%;
+            padding: 10% 0 0 0;
+        }
+        @include tablet {
+            width: 100%;
+            padding: 10% 0 0 0;
+        }
+        @include smalllaptop {
+            width: 100%;
+            padding: 10% 0 0 0;
+        }
+        h2 {
+            font-family: "Verdana";
+            color: $color_dorado_approx;
+            font-size: 1.8rem;
+            padding-bottom: 5%;
+            font-weight: 500;
+            @include mobile {
+                font-size: 1.5rem;
+            }
+        }
+        p {
+            text-align: left;
+            color: $color_dove_gray_approx;
+            font-size: 0.95rem;
+            line-height: 2rem;
+            margin-bottom: 7%;
+        }
+    }
+    .process {
+        width: 50%;
+        height: auto;
+        position: relative;
+        display: flex;
+        transition: 0.5s;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            padding: 5%;
+            @include mobile {
+                width: 70%;
+            }
+            @include tablet {
+                width: 40%;
+            }
+        }
+    }
+    .direction {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 20%;
+        p span {
+            font-size: 2rem;
+            margin: 2rem 0;
+            cursor: pointer;
+            color: $color_azure_radiance_approx;
+            width: 2rem;
+            height: 2rem;
+            display: inline-block;
+            line-height: 1.6rem;
+            text-align: center;
+            border: solid 1.5px;
+            border-color: $color_azure_radiance_approx;
+            border-radius: 5px;
+            &:hover {
+                background: $color_azure_radiance_approx;
+                color: white;
+            }
+        }
+    }
+}
+
+.title {
+    padding: 10% 15% 0 15%;
+    h3 {
+        font-family: "Verdana";
+        color: $color_dorado_approx;
+        font-size: 1.7rem;
+        padding-bottom: 3%;
+        text-align: center;
+        font-weight: 500;
+        @include mobile {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.wireframes-section {
+    width: 100%;
+    height: auto;
+    padding: 0 15%;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .wireframes {
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: flex;
+        transition: 0.5s;
+        overflow: hidden;
+        img {
+            width: 35%;
+            padding: 5%;
+            @include mobile {
+                width: 70%;
+            }
+            @include tablet {
+                width: 40%;
+            }
+        }
+    }
+    .direction {
+        display: flex;
+        justify-content: flex-end;
+        p span {
+            font-size: 2rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            color: $color_azure_radiance_approx;
+            width: 2rem;
+            height: 2rem;
+            display: inline-block;
+            line-height: 1.6rem;
+            text-align: center;
+            border: solid 1.5px;
+            border-color: $color_azure_radiance_approx;
+            border-radius: 5px;
+            &:hover {
+                background: $color_azure_radiance_approx;
+                color: white;
+            }
+        }
+    }
+}
+
+.final-designs-section {
+    width: 100%;
+    height: auto;
+    padding: 0 15%;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .final-designs {
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: flex;
+        transition: 0.5s;
+        overflow: hidden;
+        img {
+            width: 35%;
+            padding: 5%;
+            left: 0;
+            @include mobile {
+                width: 70%;
+            }
+            @include tablet {
+                width: 40%;
+            }
+        }
+    }
+    .direction {
+        display: flex;
+        justify-content: flex-end;
+        p span {
+            font-size: 2rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            color: $color_azure_radiance_approx;
+            width: 2rem;
+            height: 2rem;
+            display: inline-block;
+            line-height: 1.6rem;
+            text-align: center;
+            border: solid 1.5px;
+            border-color: $color_azure_radiance_approx;
+            border-radius: 5px;
+            &:hover {
+                background: $color_azure_radiance_approx;
+                color: white;
+            }
+        }
+    }
+}
+
+.client-remarks {
+    padding: 10% 25% 25% 25%;
+    @include mobile {
+        padding: 20% 15% 60% 15%;
+    }
+    @include tablet {
+        padding: 5% 15% 40% 15%;
+    }
+    @include smalllaptop {
+        padding: 5% 20% 30% 20%;
+    }
+    .remarks {
+        text-align: center;
+        padding: 0;
+        h3 {
+            font-family: "Verdana";
+            color: $color_dorado_approx;
+            font-size: 1.7rem;
+            padding-bottom: 3%;
+            text-align: center;
+            font-weight: 500;
+            @include mobile {
+                font-size: 1.5rem;
+            }
+        }
+        p {
+            text-align: left;
+            color: $color_dove_gray_approx;
+            font-size: 0.95rem;
+            line-height: 2rem;
+            margin-bottom: 7%;
+        }
+        .button {
+            align-self: center;
+            color: $white;
+            font-family: "Verdana";
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.1rem;
+            text-transform: capitalize;
+            padding-top: 1.5%;
+            padding-bottom: 1.5%;
+            padding-right: 2.5%;
+            padding-left: 2.5%;
+            border: solid 1.5px;
+            border-radius: 5px;
+            border-color: $white;
+            background-color: $color_azure_radiance_approx;
+            box-shadow: none;
+            @include mobile {
+                padding-top: 3%;
+                padding-bottom: 3%;
+                padding-right: 4%;
+                padding-left: 4%;
+            }
+            &:hover {
+                color: $color_azure_radiance_approx;
+                border-color: $color_azure_radiance_approx;
+                background-color: $white;
+            }
+        }
+    }
+}

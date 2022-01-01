@@ -1,0 +1,1682 @@
+@font-face {
+    font-family: "Caveat";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/caveat/v10/Wnz6HAc5bAfYB2Q7ZjYY.woff2)
+        format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
+}
+
+@import "mixins";
+@import "header";
+
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes vanish {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/Light-mode_bg.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    @include mobile {
+        background-image: url("../images/Light-mode_bg-mobile.webp");
+    }
+    @include tablet {
+        background-image: url("../images/Light-mode_bg-tablet.webp");
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.loading::before {
+    content: "\f110";
+    z-index: 503;
+    position: fixed;
+    color: $white;
+    font-size: 3rem;
+    top: 50%;
+    left: 50%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-animation: fa-spin 2s linear infinite;
+    animation: fa-spin 2s linear infinite;
+    font-family: "FontAwesome";
+}
+.loading::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    z-index: 502;
+}
+
+p {
+    font-family: "Verdana";
+    line-height: 1.7rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.05rem;
+    @include mobile {
+        font-size: 0.9rem;
+    }
+    &.caveat {
+        font-family: "Caveat";
+        font-size: 2rem;
+    }
+    &.copyright-text a {
+        color: $color_azure_radiance_approx;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    letter-spacing: 0.05rem;
+}
+
+// . . . . . . . Preloader styling . . . . . . .
+.loader {
+    position: fixed;
+    z-index: 5000;
+    background-color: $white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 1s linear infinite;
+    @include tablet {
+        width: 100%;
+        height: 100%;
+    }
+    @include mobile {
+        width: 100%;
+        height: 100%;
+    }
+    .pre {
+        width: 80px;
+        height: 80px;
+        @include tablet {
+            width: 60px;
+            height: 60px;
+        }
+        @include mobile {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .blue {
+        color: $color_azure_radiance_approx;
+        font-family: "Verdana";
+        font-size: 2.5rem;
+        font-weight: 500;
+        @include tablet {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        @include mobile {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+    .grey {
+        @extend .blue;
+        color: $color_dorado_approx;
+    }
+}
+
+.disappear {
+    animation: vanish 1s forwards;
+}
+
+// . . . . . . . Hero styling . . . . . . .
+.hero {
+    padding: 0 5% 0 10%;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: left;
+    background-image: url("../images/Light-mode-hero-bg-lg.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    @include mobile {
+        background-image: url("../images/Mobile-hero-bg.webp");
+    }
+    @include tablet {
+        background-image: url("../images/Light-mode-tablet-hero.webp");
+    }
+    @include smalllaptop {
+        background-image: url("../images/Light-mode-tablet-hero.webp");
+    }
+    @include laptop {
+        background-image: url("../images/Light-mode-hero-bg.webp");
+    }
+}
+.hero-intro {
+    font-family: "Verdana";
+    color: $color_dorado_approx;
+    @include mobile {
+        margin-top: -30%;
+        font-size: 0.7rem;
+    }
+    @include tablet {
+        margin-top: -10%;
+    }
+    @include smalllaptop {
+        margin-top: -10%;
+    }
+    .hero-bolder {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 5rem;
+        @include mobile {
+            font-size: 1.7rem;
+            line-height: 3rem;
+            letter-spacing: 0;
+        }
+        @include tablet {
+            font-size: 2.5rem;
+            line-height: 3.5rem;
+        }
+        @include smalllaptop {
+            font-size: 2.8rem;
+            line-height: 4.5rem;
+        }
+        @include laptop {
+            font-size: 2.8rem;
+        }
+    }
+    .caveat {
+        @include mobile {
+            font-size: 1.5rem;
+        }
+    }
+    a {
+        align-self: center;
+        color: $white;
+        font-family: "Verdana";
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.1rem;
+        text-transform: capitalize;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        padding-right: 3%;
+        padding-left: 3%;
+        border: solid 1.5px;
+        border-radius: 4px;
+        border-color: $color_azure_radiance_approx;
+        background-color: $color_azure_radiance_approx;
+        box-shadow: none;
+        display: none;
+        @include mobile {
+            margin-top: 10%;
+            display: block;
+            padding-top: 4.5%;
+            padding-bottom: 4.5%;
+            padding-right: 5%;
+            padding-left: 5%;
+            width: 45%;
+            text-align: center;
+        }
+        @include tablet {
+            margin-top: 7%;
+            display: inline-block;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            padding-right: 4%;
+            padding-left: 4%;
+        }
+        @include smalllaptop {
+            margin-top: 10%;
+            display: inline-block;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            padding-right: 4%;
+            padding-left: 4%;
+        }
+    }
+    h3 {
+        font-family: "Verdana";
+        line-height: 2.5rem;
+        font-weight: 700;
+    }
+}
+
+// . . . . . . . Slogan styling . . . . . . .
+.slogan {
+    padding-top: 7%;
+    padding-left: 20%;
+    padding-right: 20%;
+    p {
+        text-align: center;
+        color: $boulder;
+    }
+    @include mobile {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+// . . . . . . . About styling . . . . . . .
+.about {
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-top: 7%;
+    display: flex;
+    flex-wrap: wrap;
+    color: $boulder;
+    @include mobile {
+        padding-top: 15%;
+        padding-right: 10%;
+        padding-left: 10%;
+    }
+    @include smalllaptop {
+        padding-right: 15%;
+        padding-left: 15%;
+    }
+    @include laptop {
+        padding-right: 7%;
+        padding-left: 10%;
+    }
+
+    .info {
+        width: 50%;
+        padding-right: 5%;
+        @include mobile {
+            width: 100%;
+            padding: 0;
+            padding-bottom: 25%;
+        }
+        @include tablet {
+            width: 100%;
+            padding: 0;
+            padding-bottom: 15%;
+        }
+        @include smalllaptop {
+            width: 100%;
+            padding: 0;
+            padding-bottom: 15%;
+        }
+
+        h3 {
+            font-family: "Verdana";
+            color: $black;
+            font-weight: 500;
+            font-size: 1.5rem;
+            @include mobile {
+                margin-bottom: -5%;
+                text-align: center;
+                font-size: 1.3rem;
+            }
+        }
+        button {
+            align-self: center;
+            color: $white;
+            font-family: "Verdana";
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.1rem;
+            text-transform: capitalize;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            padding-right: 3%;
+            padding-left: 3%;
+            border: solid 1.5px;
+            border-radius: 4px;
+            border-color: $color_azure_radiance_approx;
+            background-color: $color_azure_radiance_approx;
+            box-shadow: none;
+            @include mobile {
+                display: inline-block;
+                padding-top: 3%;
+                padding-bottom: 3%;
+                padding-right: 4%;
+                padding-left: 4%;
+                margin-left: 23%;
+            }
+            @include tablet {
+                margin-left: 35%;
+            }
+            @include smalllaptop {
+                margin-left: 35%;
+            }
+            @include laptop {
+                padding-top: 3%;
+                padding-bottom: 3%;
+                padding-right: 4%;
+                padding-left: 4%;
+            }
+            &:hover {
+                color: $color_azure_radiance_approx;
+                border-color: $color_azure_radiance_approx;
+                background-color: $white;
+            }
+        }
+    }
+}
+
+.tabs {
+    padding-left: 5%;
+    width: 50%;
+    height: auto;
+    background: transparent;
+    overflow: hidden;
+    color: $boulder;
+    @include mobile {
+        width: 100%;
+        padding-left: 0;
+    }
+    @include tablet {
+        width: 100%;
+        padding-left: 0;
+    }
+    @include smalllaptop {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    h3 {
+        font-family: "Verdana";
+        color: $black;
+        font-weight: 500;
+        font-size: 1.2rem;
+        @include mobile {
+            text-align: center;
+            margin-bottom: 2%;
+            font-size: 1.3rem;
+        }
+    }
+    .tab-header {
+        //add media query mixin here
+        float: left;
+        width: 20%;
+        height: 100%;
+        border-left: 1px solid #00a0f679;
+        @include mobile {
+            overflow: scroll;
+            display: flex;
+            height: auto;
+            flex-direction: row;
+            width: 100%;
+            border-left: 0;
+            border-top: 1px solid #00a0f679;
+        }
+        @include tablet {
+            border-left: 2px solid #00a0f679;
+        }
+        @include laptop {
+            width: 25%;
+        }
+        > div {
+            line-height: 50px;
+            letter-spacing: 1px;
+            font-weight: 500;
+            font-size: 0.8rem;
+            font-family: "Verdana";
+            color: $color_dorado_approx;
+            cursor: pointer;
+            padding-left: 20%;
+            padding-top: 10%;
+            padding-bottom: 15%;
+            @include mobile {
+                padding: 5%;
+            }
+            &:hover {
+                color: $color_azure_radiance_approx;
+                animation: fade 1s ease;
+            }
+            &.active {
+                color: $color_azure_radiance_approx;
+                border-left: 3px solid $color_azure_radiance_approx;
+                margin-left: -2%;
+                animation: fade 1s ease;
+                @include mobile {
+                    border-top: 6px solid $color_azure_radiance_approx;
+                    border-left: 0;
+                    animation: fade 1s ease;
+                    margin-top: -1.5%;
+                }
+                @include tablet {
+                    border-left: 4px solid $color_azure_radiance_approx;
+                    animation: fade 1s ease;
+                    margin-left: -3%;
+                }
+            }
+        }
+        div i {
+            display: inline-block;
+            margin-left: 10px;
+            margin-right: 5px;
+            margin-bottom: -2%;
+        }
+    }
+    .tab-content {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        margin-top: -1%;
+        @include mobile {
+            height: 350px;
+            width: 100%;
+        }
+        @include smalllaptop {
+            margin-top: 0;
+        }
+        h3 {
+            font-family: "Verdana";
+            color: #00a0f6d5;
+            font-weight: 500;
+            @include mobile {
+                font-size: 1rem;
+                text-align: left;
+            }
+        }
+        > div {
+            padding-left: 10%;
+            //add media query mixin here
+            position: absolute;
+            text-align: left;
+            opacity: 0;
+            @include mobile {
+                padding-left: 0;
+            }
+            > i {
+                display: inline-block;
+                color: $color_wild_sand_approx;
+                font-weight: 600;
+                text-align: left;
+                line-height: 50px;
+                border-radius: 50%;
+            }
+            &.active {
+                opacity: 1;
+                animation: fade 1s ease;
+            }
+        }
+    }
+    .tab-indicator {
+        display: none;
+    }
+}
+
+// . . . . . . . Featured Projects styling . . . . . . .
+.featured-projects {
+    padding-top: 15%;
+    padding-left: 15%;
+    padding-right: 15%;
+    @include mobile {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    @include laptop {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    div h3 {
+        text-align: center;
+        color: $black;
+        font-family: "Verdana";
+        font-weight: 500;
+        font-size: 1.5rem;
+        padding-bottom: 1.5%;
+        @include mobile {
+            font-size: 1.3rem;
+        }
+    }
+}
+.divider1 {
+    width: 12%;
+    height: 1.5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $color_azure_radiance_approx;
+    border: none;
+    @include mobile {
+        display: none;
+    }
+}
+.featured-item {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10%;
+    padding-bottom: 15%;
+    @include mobile {
+        flex-direction: column-reverse;
+    }
+}
+.featured-item-flipped {
+    @extend .featured-item;
+    @include mobile {
+        flex-direction: column;
+    }
+}
+.featured-content {
+    padding-right: 10%;
+    padding-top: 5%;
+    width: 50%;
+    z-index: 5;
+    @include mobile {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+    @include smalllaptop {
+        padding-top: 0;
+        margin: auto 0;
+    }
+    h3 {
+        font-family: "Verdana";
+        font-size: 1.5rem !important;
+        color: $color_dorado_approx !important;
+        line-height: 3rem;
+        padding-bottom: 3%;
+        text-align: left !important;
+        font-weight: 500 !important;
+        @include mobile {
+            font-size: 1.3rem !important;
+            text-align: left;
+            padding-bottom: 0;
+        }
+        @include tablet {
+            font-size: 2rem;
+        }
+        @include smalllaptop {
+            font-size: 2rem;
+        }
+        @include laptop {
+            font-size: 2.5rem;
+        }
+    }
+    p {
+        color: $boulder;
+        padding-bottom: 2%;
+        @include mobile {
+            text-align: left;
+        }
+        @include tablet {
+            padding: 20px;
+            margin-right: -65%;
+            background-color: $white;
+            box-shadow: 0 0 15px 1px $boulder;
+        }
+        @include smalllaptop {
+            padding: 20px;
+            margin-right: -65%;
+            background-color: $white;
+            box-shadow: 0 0 15px 1px $boulder;
+        }
+    }
+    button {
+        align-self: center;
+        color: $white;
+        font-family: "Verdana";
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.1rem;
+        text-transform: capitalize;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        padding-right: 3%;
+        padding-left: 3%;
+        border: solid 1.5px;
+        border-radius: 4px;
+        border-color: $color_azure_radiance_approx;
+        background-color: $color_azure_radiance_approx;
+        box-shadow: none;
+        @include mobile {
+            margin-top: 5%;
+            padding-top: 4%;
+            padding-bottom: 4%;
+            padding-right: 5%;
+            padding-left: 5%;
+        }
+        @include tablet {
+            margin-top: 5%;
+            padding-top: 4%;
+            padding-bottom: 4%;
+            padding-right: 5%;
+            padding-left: 5%;
+        }
+        @include smalllaptop {
+            margin-top: 5%;
+            padding-top: 4%;
+            padding-bottom: 4%;
+            padding-right: 5%;
+            padding-left: 5%;
+        }
+        &:hover {
+            color: $color_azure_radiance_approx;
+            border-color: $color_azure_radiance_approx;
+            background-color: $white;
+        }
+    }
+}
+.featured-content-flipped {
+    padding-left: 10%;
+    padding-top: 5%;
+    width: 50%;
+    @include mobile {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+    @include tablet {
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        margin: auto 0;
+    }
+    @include smalllaptop {
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        margin: auto 0;
+    }
+    h3 {
+        font-family: "Verdana";
+        font-size: 1.5rem !important;
+        color: $color_dorado_approx !important;
+        line-height: 3rem;
+        padding-bottom: 3%;
+        text-align: left !important;
+        font-weight: 500 !important;
+        @include mobile {
+            font-size: 1.3rem !important;
+            padding-bottom: 0;
+        }
+        @include tablet {
+            font-size: 2rem;
+            margin-left: auto;
+        }
+        @include smalllaptop {
+            font-size: 2rem;
+            margin-left: auto;
+        }
+        @include laptop {
+            font-size: 2.5rem;
+        }
+    }
+    p {
+        color: $boulder;
+        padding-bottom: 2%;
+        @include mobile {
+            text-align: left;
+        }
+        @include tablet {
+            padding: 20px;
+            margin-left: -65%;
+            background-color: $white;
+            box-shadow: 0 0 15px 1px $boulder;
+        }
+        @include smalllaptop {
+            padding: 20px;
+            margin-left: -65%;
+            background-color: $white;
+            box-shadow: 0 0 15px 1px $boulder;
+        }
+    }
+    a {
+        @include tablet {
+            text-align: right;
+        }
+        @include smalllaptop {
+            text-align: right;
+        }
+    }
+    button {
+        //align-self: center;
+        color: $white;
+        font-family: "Verdana";
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.1rem;
+        text-transform: capitalize;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        padding-right: 3%;
+        padding-left: 3%;
+        border: solid 1.5px;
+        border-radius: 4px;
+        border-color: $color_azure_radiance_approx;
+        background-color: $color_azure_radiance_approx;
+        box-shadow: none;
+        @include mobile {
+            margin-top: 5%;
+            padding-top: 4%;
+            padding-bottom: 4%;
+            padding-right: 5%;
+            padding-left: 5%;
+        }
+        @include tablet {
+            margin-top: 5%;
+            padding-top: 4%;
+            padding-bottom: 4%;
+            padding-right: 5%;
+            padding-left: 5%;
+            margin-left: auto;
+        }
+        @include smalllaptop {
+            margin-top: 5%;
+            padding-top: 4%;
+            padding-bottom: 4%;
+            padding-right: 5%;
+            padding-left: 5%;
+            margin-left: auto;
+        }
+        &:hover {
+            color: $color_azure_radiance_approx;
+            border-color: $color_azure_radiance_approx;
+            background-color: $white;
+        }
+    }
+}
+.featured-images-flipped {
+    width: 50%;
+    @include mobile {
+        width: 100%;
+        justify-content: center;
+        align-content: center;
+    }
+
+    img {
+        width: 50%;
+        height: 10%;
+        margin: 1%;
+        box-shadow: 0 0 15px 1px $boulder;
+        border-radius: 10px;
+        @include mobile {
+            width: 100%;
+            height: auto;
+        }
+        @include tablet {
+            width: 100%;
+            height: auto;
+        }
+        @include smalllaptop {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .row1-flipped .image2-flipped {
+        margin-top: 7%;
+        margin-left: -7%;
+        z-index: 1;
+        @include mobile {
+            margin-top: 0;
+            margin-right: 0;
+            z-index: 1;
+        }
+    }
+    .row2-flipped .image4-flipped {
+        margin-top: 7%;
+        margin-left: -7%;
+        z-index: 1;
+        @include mobile {
+            margin-top: 0;
+            margin-right: 0;
+            z-index: 1;
+        }
+    }
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .image2-flipped,
+        .image4-flipped,
+        .image3-flipped {
+            display: none;
+        }
+
+        .image1-flipped {
+            margin-top: 10%;
+            margin-bottom: 10%;
+        }
+    }
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-around;
+        .image2-flipped,
+        .image4-flipped {
+            display: none;
+        }
+
+        .image1-flipped,
+        .image3-flipped {
+            margin: 5% 0;
+        }
+    }
+    @include smalllaptop {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        .image2-flipped,
+        .image4-flipped {
+            display: none;
+        }
+        // changes made here
+        .image1-flipped,
+        .image3-flipped {
+            margin: 5% 0;
+        }
+    }
+}
+.featured-images {
+    width: 50%;
+    @include mobile {
+        width: 100%;
+    }
+    img {
+        width: 50%;
+        height: 10%;
+        margin: 1%;
+        box-shadow: 0 0 15px 1px $boulder;
+        border-radius: 10px;
+        @include mobile {
+            width: 100%;
+            height: auto;
+        }
+        @include tablet {
+            width: 100%;
+            height: auto;
+        }
+        @include smalllaptop {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .row1 .image1 {
+        margin-top: 7%;
+        margin-right: -7%;
+        z-index: 1;
+        @include mobile {
+            margin-top: 0;
+            margin-right: 0;
+            z-index: 1;
+        }
+    }
+    .row2 .image3 {
+        margin-top: 7%;
+        margin-right: -7%;
+        z-index: 1;
+        @include mobile {
+            margin-top: 0;
+            margin-right: 0;
+            z-index: 1;
+        }
+    }
+
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .image2,
+        .image3,
+        .image4 {
+            display: none;
+        }
+
+        .image1 {
+            margin-top: 10%;
+            margin-bottom: 10%;
+        }
+    }
+
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        .image1,
+        .image3 {
+            display: none;
+        }
+
+        .image2,
+        .image4 {
+            margin: 5% 0;
+        }
+    }
+    @include smalllaptop {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-around;
+        .image1,
+        .image3 {
+            display: none;
+        }
+
+        .image2,
+        .image4 {
+            margin: 5% 0;
+        }
+    }
+}
+.row1 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.row2 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.row1-flipped {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.row2-flipped {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+// . . . . . . . Clients styling . . . . . . .
+.client-logos {
+    padding-top: 10%;
+    padding-left: 15%;
+    padding-right: 15%;
+    @include mobile {
+        display: none;
+    }
+    @include laptop {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .logos-row-a {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 10%;
+        img {
+            width: 100px;
+            height: 100px;
+            @include tablet {
+                width: 12%;
+                height: auto;
+            }
+            @include smalllaptop {
+                width: 13%;
+                height: auto;
+            }
+        }
+    }
+    .logos-row-b {
+        @extend .logos-row-a;
+    }
+    div h3 {
+        text-align: center;
+        color: $black;
+        font-family: "Verdana";
+        font-weight: 500;
+        padding-bottom: 1.5%;
+        font-size: 1.5rem;
+    }
+}
+.divider2 {
+    width: 15%;
+    height: 1.5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $color_azure_radiance_approx;
+    border: none;
+}
+
+.no-testimonials {
+    width: 100%;
+    height: 100%;
+    //padding: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    @include mobile {
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 0 10%;
+    }
+    @include tablet {
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 0 10%;
+    }
+    @include smalllaptop {
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 0 10%;
+    }
+    h3 {
+        color: $color_azure_radiance_approx;
+        font-family: "caveat";
+        font-size: 3rem;
+        text-align: center;
+        background-color: transparent;
+        margin-bottom: 5%;
+        @include mobile {
+            font-size: 2.5rem;
+            background-color: transparent;
+            margin-bottom: 5%;
+        }
+    }
+}
+
+// . . . . . . . Testimonial styling . . . . . . .
+.testimonials {
+    padding-top: 15%;
+    padding-left: 15%;
+    padding-right: 15%;
+    @include mobile {
+        padding-top: 15%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    @include laptop {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    div h3 {
+        text-align: center;
+        color: $black;
+        font-family: "Verdana";
+        font-weight: 500;
+        padding-bottom: 1.5%;
+        font-size: 1.5rem;
+        @include mobile {
+            font-size: 1.3rem;
+        }
+    }
+    .slider .slide {
+        display: none;
+        &.active {
+            display: block;
+            animation: fade 1s ease;
+        }
+    }
+}
+.divider3 {
+    width: 12%;
+    height: 1.5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $color_azure_radiance_approx;
+    border: none;
+    @include mobile {
+        display: none;
+    }
+}
+.slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10%;
+}
+.testimonial-container .slider-indicator img {
+    box-shadow: 1px 3px 15px -1px $boulder;
+    cursor: pointer;
+    &:hover,
+    &.active {
+        box-shadow: 1px 3px 15px -1px $color_azure_radiance_approx;
+        @include tablet {
+            height: 60px;
+            width: 60px;
+        }
+        @include smalllaptop {
+            height: 60px;
+            width: 60px;
+        }
+    }
+}
+.slider-indicator {
+    margin-top: -12%;
+    padding-bottom: 15%;
+    @include mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 5% 5% 5% 40%;
+        margin-top: 10%;
+        margin-right: 0;
+        width: 100%;
+        overflow: scroll;
+    }
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 10%;
+        margin-right: 0;
+        width: 100%;
+    }
+    @include smalllaptop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 10%;
+        margin-right: 0;
+        width: 100%;
+    }
+    @include laptop {
+        margin-top: -15%;
+    }
+    .zero {
+        position: absolute;
+        width: 5%;
+        height: auto;
+        margin-top: -10%;
+        margin-left: 10%;
+        border-radius: 50%;
+        animation: zoomIn 1s ease;
+
+        @include mobile {
+            position: relative;
+            margin: 0 5% 0 5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include tablet {
+            position: relative;
+            margin: 0 2.5% 0 2.5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include smalllaptop {
+            position: relative;
+            margin: 0 2% 0 2%;
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .one {
+        position: absolute;
+        margin-left: 5%;
+        width: 4%;
+        height: auto;
+        border-radius: 50%;
+        animation: zoomIn 1.5s ease;
+        @include mobile {
+            position: relative;
+            margin: 0 5% 0 5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include tablet {
+            position: relative;
+            margin: 0 2.5% 0 2.5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include smalllaptop {
+            position: relative;
+            margin: 0 2% 0 2%;
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .two {
+        position: absolute;
+        width: 6%;
+        height: auto;
+        margin-top: 8%;
+        margin-left: 15%;
+        border-radius: 50%;
+        animation: zoomIn 0.7s ease;
+        @include mobile {
+            position: relative;
+            margin: 0 5% 0 5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include tablet {
+            position: relative;
+            margin: 0 2.5% 0 2.5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include smalllaptop {
+            position: relative;
+            margin: 0 2% 0 2%;
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .three {
+        position: absolute;
+        width: 6%;
+        height: auto;
+        margin-top: -15%;
+        margin-left: 47%;
+        border-radius: 50%;
+        animation: zoomIn 1.5s ease;
+        @include mobile {
+            position: relative;
+            margin: 0 5% 0 5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include tablet {
+            position: relative;
+            margin: 0 2.5% 0 2.5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include smalllaptop {
+            position: relative;
+            margin: 0 2% 0 2%;
+            width: 50px;
+            height: 50px;
+        }
+        @include laptop {
+            margin-top: -15%;
+            margin-left: 57%;
+        }
+    }
+    .four {
+        position: absolute;
+        width: 4.5%;
+        height: auto;
+        margin-top: -9%;
+        margin-left: 60%;
+        border-radius: 50%;
+        animation: zoomIn 1.7s ease;
+        @include mobile {
+            position: relative;
+            margin: 0 5% 0 5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include tablet {
+            position: relative;
+            margin: 0 2.5% 0 2.5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include smalllaptop {
+            position: relative;
+            margin: 0 2% 0 2%;
+            width: 50px;
+            height: 50px;
+        }
+        @include laptop {
+            margin-top: -7%;
+            margin-left: 68%;
+        }
+    }
+    .five {
+        position: absolute;
+        width: 4%;
+        height: auto;
+        margin-top: 2%;
+        margin-left: 55%;
+        border-radius: 50%;
+        animation: zoomIn 2s ease;
+        @include mobile {
+            position: relative;
+            margin: 0 5% 0 5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include tablet {
+            position: relative;
+            margin: 0 2.5% 0 2.5%;
+            width: 50px;
+            height: 50px;
+        }
+        @include smalllaptop {
+            position: relative;
+            margin: 0 2% 0 2%;
+            width: 50px;
+            height: 50px;
+        }
+        @include laptop {
+            margin-top: 2%;
+            margin-left: 60%;
+        }
+    }
+}
+.slide {
+    margin-left: 30%;
+    margin-right: 30%;
+    @include mobile {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+    }
+    @include tablet {
+        margin-left: 0%;
+        margin-right: 0%;
+        text-align: center;
+    }
+    @include smalllaptop {
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+    }
+    p {
+        color: $boulder;
+    }
+    .client-info {
+        h3 {
+            text-align: right;
+            color: $color_dorado_approx;
+            padding-top: 2%;
+            font-weight: 600;
+            font-size: 1rem;
+            @include mobile {
+                padding-top: 5%;
+                text-align: center;
+            }
+            @include tablet {
+                padding-top: 5%;
+                text-align: center;
+            }
+            @include smalllaptop {
+                padding-top: 5%;
+                text-align: center;
+            }
+        }
+        p {
+            z-index: 1;
+            text-align: right;
+            color: $boulder;
+            @include mobile {
+                text-align: center;
+            }
+            @include tablet {
+                text-align: center;
+            }
+            @include smalllaptop {
+                text-align: center;
+            }
+            span {
+                color: $color_azure_radiance_approx;
+                text-align: right;
+            }
+        }
+    }
+    svg {
+        position: absolute;
+        margin-top: -2.5%;
+        margin-left: -3%;
+        fill: $color_azure_radiance_approx;
+        opacity: 0.2;
+        width: 5%;
+        height: auto;
+        @include mobile {
+            position: absolute;
+            margin-top: -8%;
+            margin-left: -7%;
+            width: 20%;
+            opacity: 0.1;
+        }
+        @include tablet {
+            position: absolute;
+            margin-top: -6%;
+            margin-left: -39%;
+            width: 10%;
+        }
+        @include smalllaptop {
+            position: absolute;
+            margin-top: -4.5%;
+            margin-left: -35%;
+            width: 8%;
+        }
+        @include laptop {
+            width: 6%;
+        }
+    }
+}
+
+// . . . . . . . Blog styling . . . . . . .
+.blog {
+    padding-top: 15%;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 25%;
+    @include mobile {
+        padding: 10%;
+        padding-top: 20%;
+        margin-bottom: 50%;
+    }
+    @include tablet {
+        padding-right: 10%;
+        padding-left: 10%;
+        margin-bottom: 20%;
+        padding-top: 5%;
+    }
+    @include smalllaptop {
+        padding-right: 15%;
+        padding-left: 15%;
+        margin-bottom: 20%;
+        padding-top: 5%;
+    }
+    @include laptop {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .button {
+        display: flex;
+        justify-content: center;
+        a {
+            color: $white;
+            &:hover {
+                color: $color_azure_radiance_approx;
+            }
+        }
+        button {
+            align-self: center;
+            color: $white;
+            font-family: "Verdana";
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.1rem;
+            text-transform: capitalize;
+            padding-top: 1.5%;
+            padding-bottom: 1.5%;
+            padding-right: 2%;
+            padding-left: 2%;
+            border: solid 1.5px;
+            border-radius: 4px;
+            border-color: $color_azure_radiance_approx;
+            background-color: $color_azure_radiance_approx;
+            box-shadow: none;
+            @include mobile {
+                margin-top: 5%;
+                padding-top: 4%;
+                padding-bottom: 4%;
+                padding-right: 5%;
+                padding-left: 5%;
+            }
+            @include tablet {
+                padding-top: 2%;
+                padding-bottom: 2%;
+                padding-right: 3%;
+                padding-left: 3%;
+            }
+            @include smalllaptop {
+                padding-top: 2%;
+                padding-bottom: 2%;
+                padding-right: 3%;
+                padding-left: 3%;
+            }
+            a {
+                color: $white;
+                &:hover {
+                    color: $color_azure_radiance_approx;
+                }
+            }
+            &:hover {
+                color: $color_azure_radiance_approx;
+                border-color: $color_azure_radiance_approx;
+                background-color: $white;
+                a {
+                    color: $color_azure_radiance_approx;
+                }
+            }
+        }
+    }
+    div h3 {
+        text-align: center;
+        color: $black;
+        font-family: "Verdana";
+        font-weight: 500;
+        padding-bottom: 1.5%;
+        font-size: 1.5rem;
+        @include mobile {
+            font-size: 1.3rem;
+        }
+    }
+}
+.divider4 {
+    width: 12%;
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $color_azure_radiance_approx;
+    border: none;
+    @include mobile {
+        display: none;
+    }
+}
+.articles {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 10%;
+    padding-bottom: 5%;
+
+    @include mobile {
+        overflow: scroll;
+        flex-wrap: nowrap;
+        margin: auto;
+    }
+    @include tablet {
+        flex-wrap: nowrap;
+        margin: auto;
+        overflow: scroll;
+    }
+    @include smalllaptop {
+        flex-wrap: nowrap;
+        margin: auto;
+        overflow: scroll;
+    }
+    div {
+        width: 32%;
+        background-color: $white;
+
+        @include mobile {
+            width: 100%;
+            margin: 0 5%;
+        }
+        @include tablet {
+            width: 100%;
+            margin: 0 2%;
+        }
+        @include smalllaptop {
+            width: 100%;
+            margin: 0 2%;
+        }
+        p {
+            background-color: $white;
+            margin-top: 3%;
+            margin-bottom: 1%;
+            color: $boulder;
+            letter-spacing: 1px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            font-family: "Verdana";
+        }
+        h4 {
+            color: $color_dorado_approx;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: "Verdana";
+            margin-top: 3%;
+            a {
+                color: $color_dorado_approx;
+                line-height: 2rem;
+            }
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            @include mobile {
+                width: 280px;
+                height: auto;
+            }
+            @include tablet {
+                width: auto;
+                height: 190px;
+            }
+            @include smalllaptop {
+                width: auto;
+                height: 225px;
+            }
+            @include laptop {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+
+@import "footer";

@@ -1,0 +1,43 @@
+<form class="contact-form loading" novalidate="novalidate">
+    <h1>Get In Touch</h1>
+    <label>
+        <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name"
+            aria-required="true"
+            class="error"
+        /><label id="name-error" class="error" for="name"
+            >Please enter your name</label
+        >
+    </label>
+    <label>
+        <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            aria-required="true"
+            class="error"
+            aria-invalid="true"
+        /><label id="email-error" class="error" for="email"
+            >Please enter a valid email address</label
+        >
+    </label>
+    <label for="message"></label>
+    <textarea
+        name="message"
+        id="message"
+        placeholder="Message"
+        aria-required="true"
+        class="error"
+    ></textarea
+    ><label id="message-error" class="error" for="message"
+        >Please enter a message</label
+    >
+
+    <input type="submit" value="Submit" />
+    <p class="success-form">Message Sent!</p>
+    <p class="failed-form">Failed, try again!</p>
+</form>

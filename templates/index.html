@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Your one stop website for web development, maintenance and SEO services.
+            Take a look around and don't hesitate to get it touch. Your vision is my business."
+        />
+        <meta
+            name="keywords"
+            content="web development, web design, tech blog, wordpress developer, mern stack"
+        />
+        <meta
+            name="robots"
+            content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+        />
+        <link rel="stylesheet" href="../static/css/style.css" />
+        <link rel="shortcut icon" href="../static/images/favicon.webp" />
+        <title>SmartCode | Where Speed, Efficiency And Excellence Meet</title>
+    </head>
+    <body>
+        <!-- preloader -->
+        <div class="loader">
+            <img class="pre" src="../static/images/smartcode_icon.webp" />
+            <h1>
+                <span class="blue">&nbspSmart</span>
+                <span class="grey">{ Code };</span>
+            </h1>
+        </div>
+        <!--preloader ends here-->
+
+        <div class="container">
+            <!-- header starts here -->
+            <header>
+                <nav id="navbar">
+                    <a href="index" id="logo-link">
+                        <img
+                            class="logo"
+                            src="../static/images/smartcode_icon.webp"
+                            alt="SmartCode logo"
+                        />
+                        <p>
+                            <span class="blue">Smart</span>
+                            <span class="grey">{Code};</span>
+                        </p>
+                    </a>
+                    <ul class="navlinks">
+                        <li><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+                        <li>
+                            <a href="{{ url_for('projects') }}" class="nav-link"
+                                >Projects</a
+                            >
+                        </li>
+                        <li><a href="{{ url_for('get_posts') }}" class="nav-link">Blog</a></li>
+                        <li>
+                            <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('maintenance') }}" class="nav-link"
+                                >Maintenance</a
+                            >
+                        </li>
+                    </ul>
+                    <input type="checkbox" id="check" />
+                    <label for="check" class="checkbtn">
+                        <svg
+                            class="fas fa-bars toggle"
+                            width="3rem"
+                            height="3rem"
+                            preserveAspectRatio="xMidYMid meet"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M2 6a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1z"
+                            />
+                            <path
+                                d="M2 12.032a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1z"
+                            />
+                            <path
+                                d="M3 17.064a1 1 0 1 0 0 2h18a1 1 0 0 0 0-2H3z"
+                            />
+                        </svg>
+                    </label>
+                    <a href="#" class="nav-button">Let's Talk</a>
+                </nav>
+            </header>
+            <!-- header ends here -->
+
+            <!-- hero section starts here -->
+            <section class="hero">
+                <div class="hero-intro">
+                    <h1>Hi there, welcome. I'm Samuel.</h1>
+                    <br />
+                    <h2 class="hero-bolder">
+                        I build websites and <br />
+                        webapps.
+                    </h2>
+                    <br />
+                    <p class="caveat">My friends call me Sam . . .</p>
+                    <a href="#" class="hero-button">Let's Talk</a>
+                </div>
+            </section>
+            <!-- hero section ends here -->
+
+            <div class="slogan">
+                <p>
+                    Quick note . . . This is where speed, efficiency and
+                    excellence meet!
+                </p>
+            </div>
+
+            <!-- about section starts here -->
+            <section class="about">
+                <div class="info">
+                    <h3>About . . .</h3>
+                    <br />
+                    <br />
+                    <p>
+                        I am a self-taught full-stack developer who enjoys
+                        building things that live on the internet. I develop
+                        exceptional websites and webapps that provide intuitive,
+                        pixel-perfect user interfaces with efficient and modern
+                        back-ends. In addition to that, I can maintain any
+                        website while making sure it has a fair chance when it
+                        comes to SEO.
+                    </p>
+                    <br />
+                    <br />
+                    <button>How Can I Help?</button>
+                </div>
+
+                <div class="tabs">
+                    <h3>My Experience . . .</h3>
+                    <br />
+                    <br />
+                    <div class="tab-header">
+                        <div class="active">
+                            <p>Freelance</p>
+                        </div>
+                        <div>
+                            <p>IamBrand</p>
+                        </div>
+                        <div>
+                            <p>ICreations</p>
+                        </div>
+                        <div>
+                            <p>Crescent360</p>
+                        </div>
+                    </div>
+
+                    <div class="tab-content animate__fadeIn">
+                        <div class="active">
+                            <br />
+                            <h3>Full-stack Developer</h3>
+                            <p>2014 - Present</p>
+                            <br />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Quis eum similique quisquam
+                                officiis neque, cumque dignissimos architecto
+                                nisi totam sapiente eos et illum laborum atque
+                                vero ea perferendis consectetur veritatis.
+                            </p>
+                        </div>
+
+                        <div>
+                            <br />
+                            <h3>Wordpress Developer</h3>
+                            <p>Sept 2018 - Sept 2019</p>
+                            <br />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Quis eum similique quisquam
+                                officiis neque, cumque dignissimos architecto
+                                nisi totam sapiente eos et illum laborum atque
+                                vero ea perferendis consectetur veritatis.
+                            </p>
+                        </div>
+
+                        <div>
+                            <br />
+                            <h3>Lead Web Developer</h3>
+                            <p>Sept 2019 - Sept 2020</p>
+                            <br />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Quis eum similique quisquam
+                                officiis neque, cumque dignissimos architecto
+                                nisi totam sapiente eos et illum laborum atque
+                                vero ea perferendis consectetur veritatis.
+                            </p>
+                        </div>
+
+                        <div>
+                            <br />
+                            <h3>Lead Web Developer</h3>
+                            <p>June 2020 - Present</p>
+                            <br />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Quis eum similique quisquam
+                                officiis neque, cumque dignissimos architecto
+                                nisi totam sapiente eos et illum laborum atque
+                                vero ea perferendis consectetur veritatis.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tab-indicator"></div>
+                </div>
+            </section>
+
+            <!-- about section ends here -->
+
+            <!-- featured projects section starts here -->
+            <section class="featured-projects">
+                <div>
+                    <h3>Featured Work . . .</h3>
+                    <hr class="divider1" />
+                </div>
+
+                <!-- Item 1 -->
+                <div class="featured-item">
+                    <div class="featured-content">
+                        <h3>1. Remodel</h3>
+                        <br />
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Voluptate magni consequatur distinctio quis
+                            nam! Qui itaque id eos modi adipisci voluptatum
+                            aperiam repellendus facere quia sapiente temporibus
+                            quod, facilis tenetur!
+                        </p>
+                        <br />
+                        <button>Visit Site</button>
+                    </div>
+
+                    <div class="featured-images">
+                        <div class="row1">
+                            <img
+                                class="image1"
+                                src="../static/images/featured-projects/image1.webp"
+                                alt=""
+                            />
+                            <img
+                                class="image2"
+                                src="../static/images/featured-projects/image2.webp"
+                                alt=""
+                            />
+                        </div>
+                        <div class="row2">
+                            <img
+                                class="image3"
+                                src="../static/images/featured-projects/image3.webp"
+                                alt=""
+                            />
+                            <img
+                                class="image4"
+                                src="../static/images/featured-projects/image4.webp"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="featured-item-flipped">
+                    <div class="featured-images-flipped">
+                        <div class="row1-flipped">
+                            <img
+                                class="image1-flipped"
+                                src="../static/images/featured-projects/image1.webp"
+                                alt=""
+                            />
+                            <img
+                                class="image2-flipped"
+                                src="../static/images/featured-projects/image2.webp"
+                                alt=""
+                            />
+                        </div>
+                        <div class="row2-flipped">
+                            <img
+                                class="image3-flipped"
+                                src="../static/images/featured-projects/image3.webp"
+                                alt=""
+                            />
+                            <img
+                                class="image4-flipped"
+                                src="../static/images/featured-projects/image4.webp"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <div class="featured-content-flipped">
+                        <h3>2. Remodel</h3>
+                        <br />
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Voluptate magni consequatur distinctio quis
+                            nam! Qui itaque id eos modi adipisci voluptatum
+                            aperiam repellendus facere quia sapiente temporibus
+                            quod, facilis tenetur!
+                        </p>
+                        <br />
+                        <button>Visit Site</button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="featured-item">
+                    <div class="featured-content">
+                        <h3>3. Remodel</h3>
+                        <br />
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Voluptate magni consequatur distinctio quis
+                            nam! Qui itaque id eos modi adipisci voluptatum
+                            aperiam repellendus facere quia sapiente temporibus
+                            quod, facilis tenetur!
+                        </p>
+                        <br />
+                        <button>Visit Site</button>
+                    </div>
+
+                    <div class="featured-images">
+                        <div class="row1">
+                            <img
+                                class="image1"
+                                src="../static/images/featured-projects/image1.webp"
+                                alt=""
+                            />
+                            <img
+                                class="image2"
+                                src="../static/images/featured-projects/image2.webp"
+                                alt=""
+                            />
+                        </div>
+                        <div class="row2">
+                            <img
+                                class="image3"
+                                src="../static/images/featured-projects/image3.webp"
+                                alt=""
+                            />
+                            <img
+                                class="image4"
+                                src="../static/images/featured-projects/image4.webp"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- featured section ends here -->
+
+            <!-- client logos section starts here -->
+            <section class="client-logos">
+                <div>
+                    <h3>People I've Worked With . . .</h3>
+                    <hr class="divider2" />
+                </div>
+
+                <div class="logos-row-a">
+                    <img
+                        src="../static/images/client-companies/Crescent360.webp"
+                        alt=""
+                    /><img
+                        src="../static/images/client-companies/Freshly.webp"
+                        alt=""
+                    /><img
+                        src="../static/images/client-companies/Icreations.webp"
+                        alt=""
+                    /><img src="../static/images/client-companies/Remodel.webp" alt="" />
+                </div>
+                <div class="logos-row-b">
+                    <img src="../static/images/client-companies/Dafrao.webp" alt="" /><img
+                        src="../static/images/client-companies/IamBrand.webp"
+                        alt=""
+                    /><img
+                        src="../static/images/client-companies/E-pro.webp"
+                        alt=""
+                    /><img src="../static/images/client-companies/Triunity.webp" alt="" />
+                </div>
+            </section>
+            <!-- client logos section ends here -->
+            <!--
+                <section class="no-testimonials">
+                <h1>Hang in there . . . client's words coming soon!</h1>
+                </section>
+            -->
+
+            <!-- testimonials section starts here -->
+            <section class="testimonials">
+                <div>
+                    <h3>What Clients Say . . .</h3>
+                    <hr class="divider3" />
+                </div>
+                <div class="testimonial-container">
+                    <div class="slider">
+                        <div class="slide active">
+                            <svg
+                                class="fas fa-quote-left fa-6x"
+                                width="3rem"
+                                height="3rem"
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 717 627"
+                            >
+                                <path
+                                    d="M306 106l-26-40C100 187 0 334 0 455c0 117 86 172 159 172c92 0 157-78 157-160c0-69-44-128-103-150c-17-6-33-11-33-40c0-37 27-92 126-171zm397 0l-26-40C499 187 397 334 397 455c0 117 88 172 161 172c93 0 159-78 159-160c0-69-45-128-106-150c-17-6-32-11-32-40c0-37 28-92 124-171z"
+                                />
+                            </svg>
+                            <p>
+                                Sam is a creative guy. He is humble,
+                                hardworking, and very easy to work with. My
+                                experience of working with him is beyond words
+                                because I got more than I expected. I am very
+                                proud of him and his work enough to recommend
+                                his services to others.
+                            </p>
+                            <div class="client-info">
+                                <h3>Gideon Nzukie</h3>
+                                <p>
+                                    Executive Director
+                                    <span>@ Crescent360</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <svg
+                                class="fas fa-quote-left fa-6x"
+                                width="3rem"
+                                height="3rem"
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 717 627"
+                            >
+                                <path
+                                    d="M306 106l-26-40C100 187 0 334 0 455c0 117 86 172 159 172c92 0 157-78 157-160c0-69-44-128-103-150c-17-6-33-11-33-40c0-37 27-92 126-171zm397 0l-26-40C499 187 397 334 397 455c0 117 88 172 161 172c93 0 159-78 159-160c0-69-45-128-106-150c-17-6-32-11-32-40c0-37 28-92 124-171z"
+                                />
+                            </svg>
+                            <p>
+                                Sam is a creative guy. He is humble,
+                                hardworking, and very easy to work with. My
+                                experience of working with him is beyond words
+                                because I got more than I expected. I am very
+                                proud of him and his work enough to recommend
+                                his services to others.
+                            </p>
+                            <div class="client-info">
+                                <h3>Priyal</h3>
+                                <p>
+                                    Marketing Director
+                                    <span>@ FreshlyKenya</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <svg
+                                class="fas fa-quote-left fa-6x"
+                                width="3rem"
+                                height="3rem"
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 717 627"
+                            >
+                                <path
+                                    d="M306 106l-26-40C100 187 0 334 0 455c0 117 86 172 159 172c92 0 157-78 157-160c0-69-44-128-103-150c-17-6-33-11-33-40c0-37 27-92 126-171zm397 0l-26-40C499 187 397 334 397 455c0 117 88 172 161 172c93 0 159-78 159-160c0-69-45-128-106-150c-17-6-32-11-32-40c0-37 28-92 124-171z"
+                                />
+                            </svg>
+                            <p>
+                                Sam is a creative guy. He is humble,
+                                hardworking, and very easy to work with. My
+                                experience of working with him is beyond words
+                                because I got more than I expected. I am very
+                                proud of him and his work enough to recommend
+                                his services to others.
+                            </p>
+                            <div class="client-info">
+                                <h3>Kelvin Mbacha</h3>
+                                <p>
+                                    Graphics UI/UX Designer
+                                    <span>@ Linksoft Integrated Systems</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <svg
+                                class="fas fa-quote-left fa-6x"
+                                width="3rem"
+                                height="3rem"
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 717 627"
+                            >
+                                <path
+                                    d="M306 106l-26-40C100 187 0 334 0 455c0 117 86 172 159 172c92 0 157-78 157-160c0-69-44-128-103-150c-17-6-33-11-33-40c0-37 27-92 126-171zm397 0l-26-40C499 187 397 334 397 455c0 117 88 172 161 172c93 0 159-78 159-160c0-69-45-128-106-150c-17-6-32-11-32-40c0-37 28-92 124-171z"
+                                />
+                            </svg>
+                            <p>
+                                Sam is a creative guy. He is humble,
+                                hardworking, and very easy to work with. My
+                                experience of working with him is beyond words
+                                because I got more than I expected. I am very
+                                proud of him and his work enough to recommend
+                                his services to others.
+                            </p>
+                            <div class="client-info">
+                                <h3>Arlene Ayira</h3>
+                                <p>
+                                    Social Media Manager
+                                    <span>@ Ngamia</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <svg
+                                class="fas fa-quote-left fa-6x"
+                                width="3rem"
+                                height="3rem"
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 717 627"
+                            >
+                                <path
+                                    d="M306 106l-26-40C100 187 0 334 0 455c0 117 86 172 159 172c92 0 157-78 157-160c0-69-44-128-103-150c-17-6-33-11-33-40c0-37 27-92 126-171zm397 0l-26-40C499 187 397 334 397 455c0 117 88 172 161 172c93 0 159-78 159-160c0-69-45-128-106-150c-17-6-32-11-32-40c0-37 28-92 124-171z"
+                                />
+                            </svg>
+                            <p>
+                                Sam is a creative guy. He is humble,
+                                hardworking, and very easy to work with. My
+                                experience of working with him is beyond words
+                                because I got more than I expected. I am very
+                                proud of him and his work enough to recommend
+                                his services to others.
+                            </p>
+                            <div class="client-info">
+                                <h3>John Gitau</h3>
+                                <p>
+                                    Executive Director
+                                    <span>@ Crescent360</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <svg
+                                class="fas fa-quote-left fa-6x"
+                                width="3rem"
+                                height="3rem"
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 717 627"
+                            >
+                                <path
+                                    d="M306 106l-26-40C100 187 0 334 0 455c0 117 86 172 159 172c92 0 157-78 157-160c0-69-44-128-103-150c-17-6-33-11-33-40c0-37 27-92 126-171zm397 0l-26-40C499 187 397 334 397 455c0 117 88 172 161 172c93 0 159-78 159-160c0-69-45-128-106-150c-17-6-32-11-32-40c0-37 28-92 124-171z"
+                                />
+                            </svg>
+                            <p>
+                                Sam is a creative guy. He is humble,
+                                hardworking, and very easy to work with. My
+                                experience of working with him is beyond words
+                                because I got more than I expected. I am very
+                                proud of him and his work enough to recommend
+                                his services to others.
+                            </p>
+                            <div class="client-info">
+                                <h3>Jackline Keya</h3>
+                                <p>
+                                    Founder
+                                    <span>@ Blended Families</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-indicator">
+                        <img
+                            src="../static/images/testimonials/Gideon.webp"
+                            class="active zero"
+                            alt="img"
+                            data-id="0"
+                        /><img
+                            class="one"
+                            src="../static/images/testimonials/Priyal.webp"
+                            alt="img"
+                            data-id="1"
+                        /><img
+                            class="two"
+                            src="../static/images/testimonials/Kev.webp"
+                            alt="img"
+                            data-id="2"
+                        /><img
+                            class="three"
+                            src="../static/images/testimonials/Arlene.webp"
+                            alt="img"
+                            data-id="3"
+                        /><img
+                            class="four"
+                            src="../static/images/testimonials/John.webp"
+                            alt="img"
+                            data-id="4"
+                        /><img
+                            class="five"
+                            src="../static/images/testimonials/Jackie.webp"
+                            alt="img"
+                            data-id="5"
+                        />
+                    </div>
+                </div>
+            </section>
+            <!-- testimonials section ends here -->
+
+            <!-- from the blog section starts here -->
+            <section class="blog">
+                <div>
+                    <h3>Check Out the Blog . . .</h3>
+                    <hr class="divider4" />
+                </div>
+                <div class="articles">
+                    <div class="article1">
+                        <img src="../static/images/article-image/css.webp" alt="" />
+                        <p>&nbsp;17th Jan 2021</p>
+                        <h4>How to write proper CSS</h4>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Voluptate magni consequatur distinctio quis
+                            nam! Qui itaque id eos modi adipisci voluptatum
+                            aperiam
+                        </p>
+                    </div>
+                    <div class="article2">
+                        <img src="../static/images/article-image/tutor.webp" alt="" />
+                        <p>&nbsp;15th Jan 2021</p>
+                        <h4>How to mentor someone in programming</h4>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Voluptate magni consequatur distinctio quis
+                            nam! Qui itaque id eos modi adipisci voluptatum
+                            aperiam
+                        </p>
+                    </div>
+                    <div class="article3">
+                        <img src="../static/images/article-image/zone.webp" alt="" />
+                        <p>&nbsp;13th Jan 2021</p>
+                        <h4>How do you stay motivated as a coder?</h4>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Voluptate magni consequatur distinctio quis
+                            nam! Qui itaque id eos modi adipisci voluptatum
+                            aperiam
+                        </p>
+                    </div>
+                </div>
+                <div class="button">
+                    <button>
+                        <a href="https://smart-code.dev/blog/">More Articles</a>
+                    </button>
+                </div>
+            </section>
+
+            <!-- from the blog section ends here -->
+
+            <!-- footer starts here -->
+            <footer>
+                <div>
+                    <!--subscription form-->
+                    <form class="footer-form">
+                        <p>
+                            Subscribe to Be in the Loop Every Time I Post New
+                            Articles!
+                        </p>
+                        <label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                placeholder="Name"
+                            />
+                        </label>
+                        <label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="Email"
+                            />
+                        </label>
+                        <input type="submit" value="Subscribe" />
+                    </form>
+
+                    <!--social icons-->
+                    <ul class="social">
+                        <li>
+                            <a>
+                                <svg
+                                    width="1.5rem"
+                                    height="1.5rem"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    viewBox="0 0 24 24"
+                                    class="fab fa-medium"
+                                >
+                                    <path
+                                        d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-2.046 4.265l-.966.925a.28.28 0 0 0-.106.271v6.801a.28.28 0 0 0 .106.271l.942.926v.204h-4.741v-.204l.977-.948c.097-.096.097-.125.097-.271V9.742l-2.716 6.896h-.368L8.018 9.742v4.622a.644.644 0 0 0 .176.531l1.271 1.541v.203H5.861v-.203l1.271-1.541a.618.618 0 0 0 .164-.531V9.02a.468.468 0 0 0-.152-.395l-1.13-1.36v-.203H9.52l2.71 5.943l2.382-5.943h3.343v.203z"
+                                    />
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a>
+                                <svg
+                                    width="1.5rem"
+                                    height="1.5rem"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    viewBox="0 0 24 24"
+                                    class="fab fa-twitter"
+                                >
+                                    <path
+                                        d="M23.643 4.937c-.835.37-1.732.62-2.675.733a4.67 4.67 0 0 0 2.048-2.578a9.3 9.3 0 0 1-2.958 1.13a4.66 4.66 0 0 0-7.938 4.25a13.229 13.229 0 0 1-9.602-4.868c-.4.69-.63 1.49-.63 2.342A4.66 4.66 0 0 0 3.96 9.824a4.647 4.647 0 0 1-2.11-.583v.06a4.66 4.66 0 0 0 3.737 4.568a4.692 4.692 0 0 1-2.104.08a4.661 4.661 0 0 0 4.352 3.234a9.348 9.348 0 0 1-5.786 1.995a9.5 9.5 0 0 1-1.112-.065a13.175 13.175 0 0 0 7.14 2.093c8.57 0 13.255-7.098 13.255-13.254c0-.2-.005-.402-.014-.602a9.47 9.47 0 0 0 2.323-2.41l.002-.003z"
+                                    />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <svg
+                                    width="1.5rem"
+                                    height="1.5rem"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    viewBox="0 0 24 24"
+                                    class="fab fa-linkedin-in"
+                                >
+                                    <circle cx="4.983" cy="5.009" r="2.188" />
+                                    <path
+                                        d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118c1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783c-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z"
+                                    />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!--copyright text-->
+                    <p class="copyright-text">
+                        <span>All Rights Reserved </span>&copy; 2021 |
+                        <a href="https://smart-code.dev">SmartCode</a>
+                    </p>
+                </div>
+            </footer>
+            <!-- footer ends here -->
+        </div>
+        <script src="../static/js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,588 @@
+/*@mixin widescreen CSS {
+    @media (min-width: 1441px) and (max-width: 1920px) {
+        @content;
+    }
+}*/
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@-webkit-keyframes vanish {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes vanish {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-image: url("../images/Contact-Background.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+@media (max-width: 500px) {
+  body {
+    background-image: url("../images/Mobile-bg.webp");
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  body {
+    background-image: url("../images/Tablet-single-bg.webp");
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    background-image: url("../images/Tablet-single-bg.webp");
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+p {
+  font-family: "Verdana";
+  line-height: 1.7rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.03rem;
+}
+
+p.caveat {
+  font-family: "Caveat";
+  font-size: 2rem;
+}
+
+p.copyright-text a {
+  color: #009ff6;
+}
+
+.loader {
+  position: fixed;
+  z-index: 5000;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-animation: pulse 1s linear infinite;
+          animation: pulse 1s linear infinite;
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  .loader {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .loader {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.loader .pre {
+  width: 80px;
+  height: 80px;
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  .loader .pre {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .loader .pre {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.loader .blue, .loader .grey {
+  color: #009ff6;
+  font-family: "Verdana";
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  .loader .blue, .loader .grey {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 500px) {
+  .loader .blue, .loader .grey {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+.loader .grey {
+  color: #525252;
+}
+
+.disappear {
+  -webkit-animation: vanish 1s forwards;
+          animation: vanish 1s forwards;
+}
+
+#login {
+  width: 25%;
+}
+
+@media (max-width: 500px) {
+  #login {
+    width: 80%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  #login {
+    width: 50%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #login {
+    width: 40%;
+  }
+}
+
+#login h1 {
+  display: none;
+}
+
+#login .message {
+  display: none;
+}
+
+#login #loginform {
+  border: none;
+  font-family: "Verdana";
+  text-align: left;
+  margin: auto;
+  background-color: #fff;
+  color: #525252;
+  background-color: transparent;
+  position: relative;
+}
+
+#login #loginform p label {
+  background-color: #fff;
+  z-index: 1;
+  position: absolute;
+  margin-top: -2.5%;
+  margin-left: 5%;
+  padding: 0 3%;
+  color: #0980d4;
+  font-size: 0.9rem;
+}
+
+#login #loginform p input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: transparent;
+  padding-top: 10%;
+  padding-bottom: 2%;
+  padding-left: 5%;
+  z-index: 0;
+  color: #525252;
+  border-radius: 5px;
+  margin-bottom: 10%;
+}
+
+#login #loginform p input:focus {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  border-color: #009ff6;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+#login #loginform > .submit #wp-submit {
+  font-family: "Verdana";
+  width: 30%;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  border: solid 1.5px;
+  border-color: #009ff6;
+  background-color: #009ff6;
+  border-radius: 4px;
+  padding: 2% 4%;
+  margin-top: 7%;
+  letter-spacing: 0.1rem;
+}
+
+@media (max-width: 500px) {
+  #login #loginform > .submit #wp-submit {
+    width: 40%;
+    margin-top: 15%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  #login #loginform > .submit #wp-submit {
+    margin-top: 10%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}
+
+#login #loginform > .submit #wp-submit:hover {
+  color: #009ff6;
+  border-color: #009ff6;
+  background-color: #fff;
+}
+
+#login #loginform .user-pass-wrap {
+  margin-top: 5%;
+}
+
+#login #loginform .user-pass-wrap label {
+  background-color: #fff;
+  z-index: 1;
+  position: absolute;
+  margin-top: -2.5%;
+  margin-left: 5%;
+  padding: 0 3%;
+  color: #0980d4;
+  font-size: 0.9rem;
+}
+
+#login #loginform .user-pass-wrap .wp-pwd input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: transparent;
+  padding-top: 10%;
+  padding-bottom: 2%;
+  padding-left: 5%;
+  z-index: 0;
+  color: #525252;
+  border-radius: 5px;
+  margin-bottom: 10%;
+}
+
+#login #loginform .user-pass-wrap .wp-pwd input:focus {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  border-color: #009ff6;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+#login #loginform .user-pass-wrap .wp-pwd button {
+  color: #009ff6;
+  margin-top: 4%;
+}
+
+#login #loginform .forgetmenot input {
+  border-radius: 3px;
+}
+
+#login #loginform .forgetmenot label {
+  background-color: transparent;
+  margin-left: -2.5%;
+  padding-top: 2%;
+}
+
+#login #loginform .submit #wp-submit {
+  margin: 0;
+}
+
+#login #nav {
+  margin-top: -5%;
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #505050;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 500px) {
+  .login {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  .login {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.login .loginform {
+  width: 50%;
+  margin-top: -10%;
+}
+
+@media (max-width: 500px) {
+  .login .loginform {
+    width: 100%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  .login .loginform {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login .loginform {
+    width: 80%;
+  }
+}
+
+.login .login-form {
+  font-family: "Verdana";
+  text-align: left;
+  width: 50%;
+  margin: auto;
+  background-color: #fff;
+  color: #525252;
+  background-color: transparent;
+}
+
+@media (max-width: 500px) {
+  .login .login-form {
+    width: 65%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  .login .login-form {
+    width: 60%;
+    padding: 5% 5%;
+    margin-bottom: 5%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login .login-form {
+    width: 60%;
+    padding: 5% 5%;
+    margin-bottom: 5%;
+  }
+}
+
+.login .login-form h1 {
+  text-align: left;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  width: 100%;
+  margin-bottom: 5%;
+  color: #009ff6;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login .login-form h1 {
+    font-size: 1.9rem;
+  }
+}
+
+.login .login-form a {
+  display: inline-block;
+  width: 68%;
+  font-size: 0.8rem;
+  text-align: right;
+  text-decoration: none;
+  color: #666;
+}
+
+@media (max-width: 500px) {
+  .login .login-form a {
+    width: 57%;
+    text-align: right;
+  }
+}
+
+.login .login-form input[type="text"],
+.login .login-form input[type="password"],
+.login .login-form textarea {
+  font-family: "Verdana";
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-right: 1%;
+  margin-left: 1%;
+  padding: 2% 4%;
+  border: solid;
+  border-color: #505050;
+  border-width: 0 0 1px 0;
+}
+
+@media (max-width: 500px) {
+  .login .login-form input[type="text"],
+  .login .login-form input[type="password"],
+  .login .login-form textarea {
+    padding: 5% 4%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login .login-form input[type="text"],
+  .login .login-form input[type="password"],
+  .login .login-form textarea {
+    font-size: 0.9rem;
+  }
+}
+
+.login .login-form input[type="text"]:focus,
+.login .login-form input[type="password"]:focus,
+.login .login-form textarea:focus {
+  border-color: #009ff6;
+  border-width: 0 0 1px 0;
+  outline: none;
+}
+
+.login .login-form input[type="submit"] {
+  font-family: "Verdana";
+  width: 30%;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  border: solid 1.5px;
+  border-color: #009ff6;
+  background-color: #009ff6;
+  border-radius: 4px;
+  padding: 2.5% 4%;
+  margin-top: 7%;
+  letter-spacing: 0.1rem;
+}
+
+@media (max-width: 500px) {
+  .login .login-form input[type="submit"] {
+    width: 40%;
+    margin-top: 15%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  .login .login-form input[type="submit"] {
+    margin-top: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}
+
+.login .login-form input[type="submit"]:hover {
+  color: #009ff6;
+  border-color: #009ff6;
+  background-color: #fff;
+}
+/*# sourceMappingURL=login.css.map */
