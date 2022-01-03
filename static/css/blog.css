@@ -776,7 +776,7 @@ p.copyright-text a {
 
 @media (max-width: 500px) {
   .featured-posts {
-    padding: 0 5% 0 5%;
+    padding: 0 3% 0 3%;
     background-image: url("../images/Contact-Background.webp");
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -847,7 +847,7 @@ p.copyright-text a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 100%;
+    width: 95%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -947,7 +947,7 @@ p.copyright-text a {
 
 @media (max-width: 500px) {
   .post-item .post-image img {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -1003,7 +1003,7 @@ p.copyright-text a {
     padding-bottom: 0;
     padding-left: 5%;
     padding-right: 5%;
-    width: 85%;
+    width: 90%;
     left: 0;
     border-radius: 10px;
     -webkit-box-shadow: 0 0 7rem -3rem #666;

@@ -697,7 +697,7 @@ p.copyright-text a {
 @media (max-width: 500px) {
   .single-post {
     background: none;
-    padding: 20% 10% 7% 10%;
+    padding: 20% 3% 0 3%;
     height: auto;
     text-align: center;
   }
@@ -763,8 +763,7 @@ p.copyright-text a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -ms-flex-direction: column-reverse;
-        flex-direction: column-reverse;
+    flex-direction: column;
   }
 }
 
@@ -894,6 +893,7 @@ p.copyright-text a {
   .single-post .post-info .post-meta {
     text-align: left;
     padding: 3%;
+    padding-bottom: 0;
     width: 100%;
     background-color: #fff;
     margin-right: 0;
@@ -952,6 +952,7 @@ p.copyright-text a {
 @media (max-width: 500px) {
   .single-post .post-info .post-meta .date {
     margin: auto;
+    margin-top: -2%;
     font-size: 0.7rem;
   }
 }
@@ -1023,6 +1024,12 @@ p.copyright-text a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+  .single-post-body {
+    padding: 0 3%;
+  }
 }
 
 .single-post-body .post-body {

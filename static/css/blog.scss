@@ -234,7 +234,7 @@ p {
     background-size: cover;
     background-image: url("../images/Contact-Background.webp");
     @include mobile {
-        padding: 0 5% 0 5%;
+        padding: 0 3% 0 3%;
         background-image: url("../images/Contact-Background.webp");
         justify-content: center;
         height: auto;
@@ -271,7 +271,7 @@ p {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 95%;
         flex-direction: column;
     }
     @include tablet {
@@ -321,7 +321,7 @@ p {
             border-radius: 10px;
             box-shadow: -2.5rem -2.5rem 1px $color_azure_radiance_approx;
             @include mobile {
-                max-width: 90%;
+                max-width: 100%;
                 height: auto;
                 box-shadow: none;
             }
@@ -360,7 +360,7 @@ p {
             padding-bottom: 0;
             padding-left: 5%;
             padding-right: 5%;
-            width: 85%;
+            width: 90%;
             left: 0;
             border-radius: 10px;
             box-shadow: 0 0 7rem -3rem $color_dove_gray_approx;

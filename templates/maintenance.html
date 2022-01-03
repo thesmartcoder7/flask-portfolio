@@ -1,43 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Your one stop website for web development, maintenace and SEO services. 
-            Take a look around and don't hesitate to get it touch. Your vision is my business."
-        />
-        <meta
-            name="keywords"
-            content="web development, web design, tech blog, wordpress developer, mern stack"
-        />
-        <meta
-            name="robots"
-            content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
-        />
-        <script
-            src="https://kit.fontawesome.com/def3c3ed02.js"
-            crossorigin="anonymous"
-        ></script>
-        <link rel="stylesheet" href="../static/css/maintenance.css" />
-        <link rel="shortcut icon" href="../static/images/favicon.webp" />
-        <title>Maintenance</title>
-    </head>
-    <body>
-        <!-- preloader -->
-        <div class="loader">
-            <img class="pre" src="../static/images/smartcode_icon.webp" />
-            <h1>
-                <span class="blue">&nbspSmart</span>
-                <span class="grey">{ Code };</span>
-            </h1>
-        </div>
-        <!--preloader ends here-->
-        <div class="container">
-            <h1>Working on some stuff . . . I'll be back shortly!</h1>
-            <img src="../static/images/S-maintenance.webp" alt="" />
-        </div>
-        <script src="../static/js/main.js"></script>
-    </body>
-</html>
+{% extends 'baseless.html' %}
+
+{% block css_link %}
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/maintenance.css') }}" />
+{% endblock %}
+
+{% block page_title %} Maintenance {% endblock %}
+
+{% block main_content %}
+    <div class="container">
+        <h1>Working on some stuff . . . I'll be back shortly!</h1>
+        <img src="../static/images/S-maintenance.webp" alt=""/>
+    </div>
+{% endblock %}

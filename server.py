@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
+import smtplib
 
 app = Flask(__name__)
 maintenance_mode = False
@@ -28,9 +29,22 @@ def get_posts():
     return render_template('blog.html', posts=all_posts)
 
 
-@app.route('/contact')
+@app.route('/contact', methods=["POST", "GET"])
 def contact():
-    return render_template('contact.html')
+    if request.method == "POST":
+        # uncomment for the functionality to send this details to your email after form validation.
+        # name = request.form['name']
+        # email = request.form['email']
+        # message = request.form['message']
+        # with smtplib.SMTP("smart-code.dev") as connection:
+        #     username = "your own email"
+        #     password = "your own password"
+        #     recipient = "where you want emails from this site to be delivered"
+        #     connection.starttls()
+        #     connection.login(user=username, password=password)
+        #     connection.sendmail(from_addr=username, to_addrs=recipient, msg=f"Subject: Message from {name}: ({email}) \n{message}")
+        return render_template('contact.html', message_sent=True)
+    return render_template('contact.html', message_sent=False)
 
 
 @app.route('/login')
@@ -60,6 +74,11 @@ def get_single(title):
         body=single_post["post"],
         date= single_post["date"]
     )
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
 
 
 
