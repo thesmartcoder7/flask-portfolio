@@ -42,7 +42,11 @@ def contact():
         #     recipient = "where you want emails from this site to be delivered"
         #     connection.starttls()
         #     connection.login(user=username, password=password)
-        #     connection.sendmail(from_addr=username, to_addrs=recipient, msg=f"Subject: Message from {name}: ({email}) \n{message}")
+        #      connection.sendmail(
+        #          from_addr=username,
+        #          to_addrs=recipient,
+        #          msg=f"Subject: Message from {name}: ({email}) \n{message}"
+        #      )
         return render_template('contact.html', message_sent=True)
     return render_template('contact.html', message_sent=False)
 
