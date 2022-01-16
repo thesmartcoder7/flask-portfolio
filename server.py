@@ -1,13 +1,15 @@
 from flask import Flask, render_template, request
+from datetime import date
 import requests
 import smtplib
 
 app = Flask(__name__)
 maintenance_mode = False
+year = date.today().year
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', year=year)
 
 
 @app.route('/projects')
@@ -26,9 +28,9 @@ def get_posts():
         brief_post = body[:35]
         brief_post = " ".join(brief_post) + "..."
         post["excerpt"] = brief_post
-    return render_template('blog.html', posts=all_posts)
+    return render_template('blog.html', posts=all_posts, year=year)
 
-
+# work on a wt form format . . . ( working on it )
 @app.route('/contact', methods=["POST", "GET"])
 def contact():
     if request.method == "POST":
@@ -47,8 +49,8 @@ def contact():
         #          to_addrs=recipient,
         #          msg=f"Subject: Message from {name}: ({email}) \n{message}"
         #      )
-        return render_template('contact.html', message_sent=True)
-    return render_template('contact.html', message_sent=False)
+        return render_template('contact.html', message_sent=True, year=year)
+    return render_template('contact.html', message_sent=False, year=year)
 
 
 @app.route('/login')
